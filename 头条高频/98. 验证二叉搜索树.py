@@ -19,3 +19,10 @@ public:
             && isValidBST(root->right, root->val, upper);
     }
 };
+
+def isValidBST(root, lower = float("-inf"), higher = float("inf")):
+    if not root:
+        return True
+    return root.val > lower and root.val < higher 
+        and isValidBST(root.left, lower, root.val)
+        and isValidBST(root.right, root.val, higher) 

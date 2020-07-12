@@ -12,3 +12,27 @@
 输入: 2->1->3->5->6->4->7->NULL 
 输出: 2->3->6->7->1->5->4->NULL
 """
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def oddEvenList(self, head: ListNode) -> ListNode:
+        if not head or not head.next:
+            return head
+        
+        # odd
+        odd = head
+        # evevn
+        even = head.next
+
+        e  = head.next
+        while odd.next and e.next:
+            odd.next = e.next
+            odd = odd.next
+            e.next = odd.next
+            e = e.next
+        odd.next = even
+        return head
