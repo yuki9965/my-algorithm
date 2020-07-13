@@ -1,24 +1,18 @@
-class Solution {
-public:
-    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
-        map<int,int> m;
-        stack<int> s;
-        for (int i : nums2)
-        {
-            while (!s.empty() and s.top() <= i)
-            {
-                m[s.top()] = i;
-                s.pop();
-            }
-            s.push(i);
-        }
-        for (int j=0;j<nums1.size();j++)
-        {
-            if (m[nums1[j]])
-                nums1[j] = m[nums1[j]];
-            else
-                nums1[j] = -1;
-        }
-        return nums1;
-    }
-};
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        m = {}
+        s = []
+        # 记录nums2中，每个元素右边第一个大于它的值，并记录在m中
+        for i in nums2:
+            while s and s[-1] < i:
+                m[s[-1]] = i
+                s.pop()
+            s.append(i)
+        
+        res = []
+        for i in nums1:
+            if i in m:
+                res.append(m[i])
+            else:
+                res.append(-1)
+        return res
