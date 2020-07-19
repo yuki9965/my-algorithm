@@ -38,6 +38,7 @@ public:
                 nums[k] = aux[i++];
             else if(aux[i] > aux[j]){ //此时逆序了
                 nums[k] = aux[j++];
+                # 后面不用看肯定也是大于的
                 count += mid - i + 1;
             }
             else

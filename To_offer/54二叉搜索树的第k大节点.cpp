@@ -34,6 +34,7 @@ public:
     }
 
     void Morder(TreeNode* root, int k){
+        # 自底向上
         if(root->right != nullptr) //因为从大到小 所以和普通中序遍历是反着的
             Morder(root->right, k);
         count++;

@@ -17,7 +17,7 @@ class MaxStack():
     def push(self, x):
         if not self.s2 or self.s2[-1] <= x:
             self.s2.append(x)
-        self.x1.append(x)
+        self.s1.append(x)
     
     def pop(self):
         if self.s2 and self.s2[-1] == self.s1[-1]:

@@ -12,7 +12,7 @@ class Solution:
         stack.append((0, root))
         while stack:
             color = stack[-1][0]
-            node - stack[-1][1]
+            node = stack[-1][1]
             stack.pop()
             if not node:
                 continue
